@@ -3,6 +3,8 @@ class Hasband < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :validatable
 
+  has_one :family
+
   after_create :update_access_token!
 
   validates :email, presence: true

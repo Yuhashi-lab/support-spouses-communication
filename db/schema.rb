@@ -10,14 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170705134909) do
+ActiveRecord::Schema.define(version: 20170707172113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "families", force: :cascade do |t|
+    t.bigint "hasband_id"
+    t.bigint "wife_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hasband_id"], name: "index_families_on_hasband_id"
+    t.index ["wife_id"], name: "index_families_on_wife_id"
+  end
+
   create_table "hasbands", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.integer "family_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -51,4 +61,6 @@ ActiveRecord::Schema.define(version: 20170705134909) do
     t.index ["reset_password_token"], name: "index_wives_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "families", "hasbands"
+  add_foreign_key "families", "wives"
 end
