@@ -8,8 +8,13 @@ module V1
       if @hasband.save!
         render json: @hasband, serializer: V1::SessionSerializer, root: nil
       else
-        render json: { error: t('hasband_create_error') }, status: :unprocessable_entity
+        render json: { error: ('hasband_create_error') }, status: :unprocessable_entity
       end
+    end
+
+    def search_partner
+      @wives = Wife.where("email like '%"+ params[:partner_email] + "%'")
+      render 'search_partner', formats: 'json', handlers: 'jbuilder'
     end
 
     private

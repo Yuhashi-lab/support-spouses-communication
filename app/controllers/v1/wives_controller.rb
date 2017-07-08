@@ -12,6 +12,11 @@ module V1
       end
     end
 
+    def search_partner
+      @hasbands = Hasband.where("email like '%"+ params[:partner_email] + "%'")
+      render 'search_partner', formats: 'json', handlers: 'jbuilder'
+    end
+
     private
 
     def wife_params
