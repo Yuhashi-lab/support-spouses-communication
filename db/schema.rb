@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20170707175724) do
   create_table "wives", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.integer "family_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
