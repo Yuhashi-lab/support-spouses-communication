@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: support-spouses-communication_production
-  username: support-spouses-communication
-  password: <%= ENV['SUPPORT-SPOUSES-COMMUNICATION_DATABASE_PASSWORD'] %>
