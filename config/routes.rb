@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root :to => 'welcome#index'
 
   devise_for :wives,    only: []
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
     end
     resource :children,   only: [:create]
     resources :questions,  only: [:index, :show]
+    resources :question_answers,  only: [:create]
   end
 
 end

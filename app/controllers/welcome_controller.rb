@@ -4,4 +4,5 @@ class WelcomeController < ApplicationController
   def index
     render json: { success: ('Welcome') }
   end
+
 end

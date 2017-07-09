@@ -4,6 +4,7 @@ class Wife < ApplicationRecord
   devise :database_authenticatable, :registerable, :validatable
 
   has_one :family
+  has_many :question_answers, :as => :user
 
   after_create :update_access_token!
 
