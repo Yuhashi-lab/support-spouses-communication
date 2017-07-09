@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170709144045) do
+ActiveRecord::Schema.define(version: 20170709161605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,16 @@ ActiveRecord::Schema.define(version: 20170709144045) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "talks", force: :cascade do |t|
+    t.bigint "family_id"
+    t.integer "user_id"
+    t.string "user_type"
+    t.text "statement"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["family_id"], name: "index_talks_on_family_id"
+  end
+
   create_table "wives", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -92,4 +102,5 @@ ActiveRecord::Schema.define(version: 20170709144045) do
   add_foreign_key "families", "hasbands"
   add_foreign_key "families", "wives"
   add_foreign_key "question_answers", "questions"
+  add_foreign_key "talks", "families"
 end

@@ -5,6 +5,7 @@ class Hasband < ApplicationRecord
 
   has_one :family
   has_many :question_answers, :as => :user
+  has_many :talks,            :as => :user
 
   after_create :update_access_token!
 

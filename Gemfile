@@ -29,8 +29,12 @@ gem 'devise'
 gem 'active_model_serializers'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'pry-rails'
+  gem 'pry-doc'
   gem 'pry-byebug'
+  gem 'pry-stack_explorer'
+  gem 'hirb'
+  gem 'hirb-unicode'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 

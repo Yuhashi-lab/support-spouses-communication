@@ -13,8 +13,11 @@ Rails.application.routes.draw do
     resource :wives,    only: [:create] do
       get "search_partner", :on => :collection
     end
-    resource :families, only: [:create] do
+    resources :families, only: [:create] do
       get "search", :on => :collection
+      resources :talks, only: [:index, :create] do
+        get "search_from_range", :on => :collection
+      end
     end
     resource :children,   only: [:create]
     resources :questions,  only: [:index, :show]

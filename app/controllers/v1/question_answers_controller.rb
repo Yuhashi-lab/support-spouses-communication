@@ -1,12 +1,11 @@
 class V1::QuestionAnswersController < ApplicationController
   def create
-    if request.headers["UserType"] == "hasband"
-      user = Hasband.find_by(id: request.headers["Authorization"].split(':').first)
+    @answer = current_user.question_answers.new(question_answer_params)
+    if @answer.save
+      render json: { success: ('created') }
     else
-      user = Wife.find_by(id: request.headers["Authorization"].split(':').first)
+      render json: { error: ('failed') }
     end
-    user.question_answers.create(question_answer_params)
-    render json: { success: ('created') }
   end
 
   def question_answer_params
