@@ -20,6 +20,9 @@ Rails.application.routes.draw do
       end
       resources :must_todos, only: [:index, :show, :create, :update, :destroy]
       resources :want_todos, only: [:index, :show, :create, :update, :destroy]
+      resources :schedules,  only: [:index, :show, :create, :update, :destroy] do
+        get "search_from_range", :on => :collection
+      end
     end
     resource :children,   only: [:create]
     resources :questions,  only: [:index, :show]

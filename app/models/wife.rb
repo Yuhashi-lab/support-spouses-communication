@@ -8,7 +8,8 @@ class Wife < ApplicationRecord
   has_many :talks,            :as => :user
   has_many :must_todos,       :as => :user
   has_many :want_todos,       :as => :user
-  
+  has_many :schedules,        :as => :user
+
   after_create :update_access_token!
 
   validates :email, presence: true

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170709185647) do
+ActiveRecord::Schema.define(version: 20170709212631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,17 @@ ActiveRecord::Schema.define(version: 20170709185647) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "schedules", force: :cascade do |t|
+    t.datetime "datetime"
+    t.string "statement"
+    t.bigint "family_id"
+    t.integer "user_id"
+    t.string "user_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["family_id"], name: "index_schedules_on_family_id"
+  end
+
   create_table "talks", force: :cascade do |t|
     t.bigint "family_id"
     t.integer "user_id"
@@ -127,6 +138,7 @@ ActiveRecord::Schema.define(version: 20170709185647) do
   add_foreign_key "families", "wives"
   add_foreign_key "must_todos", "families"
   add_foreign_key "question_answers", "questions"
+  add_foreign_key "schedules", "families"
   add_foreign_key "talks", "families"
   add_foreign_key "want_todos", "families"
 end
