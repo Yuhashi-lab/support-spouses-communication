@@ -24,4 +24,19 @@ class V1::FamiliesController < ApplicationController
     end
     #
   end
+
+  def search
+    if request.headers["UserType"] == "hasband"
+      family = Hasband.find_by(id: request.headers["Authorization"].split(':').first).try(:family)
+    else
+      family = Wife.find_by(id: request.headers["Authorization"].split(':').first).try(:family)
+    end
+
+    if family == nil
+      render json: { error: ("user doesn't have family") }, status: :unprocessable_entity
+    else
+      render json: family
+    end
+  end
+
 end
