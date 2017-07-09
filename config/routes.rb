@@ -18,6 +18,8 @@ Rails.application.routes.draw do
       resources :talks, only: [:index, :create] do
         get "search_from_range", :on => :collection
       end
+      resources :must_todos, only: [:index, :show, :create, :update, :destroy]
+      resources :want_todos, only: [:index, :show, :create, :update, :destroy]
     end
     resource :children,   only: [:create]
     resources :questions,  only: [:index, :show]

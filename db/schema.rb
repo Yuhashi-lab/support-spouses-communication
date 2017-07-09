@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170709161605) do
+ActiveRecord::Schema.define(version: 20170709185647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,18 @@ ActiveRecord::Schema.define(version: 20170709161605) do
     t.index ["reset_password_token"], name: "index_hasbands_on_reset_password_token", unique: true
   end
 
+  create_table "must_todos", force: :cascade do |t|
+    t.datetime "deadline"
+    t.string "statement"
+    t.bigint "family_id"
+    t.integer "user_id"
+    t.string "user_type"
+    t.string "personnel"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["family_id"], name: "index_must_todos_on_family_id"
+  end
+
   create_table "question_answers", force: :cascade do |t|
     t.bigint "question_id"
     t.integer "user_id"
@@ -80,6 +92,18 @@ ActiveRecord::Schema.define(version: 20170709161605) do
     t.index ["family_id"], name: "index_talks_on_family_id"
   end
 
+  create_table "want_todos", force: :cascade do |t|
+    t.datetime "deadline"
+    t.string "statement"
+    t.bigint "family_id"
+    t.integer "user_id"
+    t.string "user_type"
+    t.string "personnel"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["family_id"], name: "index_want_todos_on_family_id"
+  end
+
   create_table "wives", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -101,6 +125,8 @@ ActiveRecord::Schema.define(version: 20170709161605) do
 
   add_foreign_key "families", "hasbands"
   add_foreign_key "families", "wives"
+  add_foreign_key "must_todos", "families"
   add_foreign_key "question_answers", "questions"
   add_foreign_key "talks", "families"
+  add_foreign_key "want_todos", "families"
 end
