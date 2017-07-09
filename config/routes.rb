@@ -14,7 +14,8 @@ Rails.application.routes.draw do
     resource :families, only: [:create] do
       get "search", :on => :collection
     end
-    resource :children, only: [:create]
+    resource :children,   only: [:create]
+    resources :questions,  only: [:index, :show]
   end
 
 end
