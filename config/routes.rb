@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => 'welcome#index'
 
   devise_for :wives,    only: []
   devise_for :hasbands, only: []
