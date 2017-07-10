@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'rack-cors'
 gem 'devise'
 gem 'active_model_serializers'
+gem 'carrierwave'
 
 group :development, :test do
   gem 'pry-rails'

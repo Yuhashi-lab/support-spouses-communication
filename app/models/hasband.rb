@@ -9,6 +9,7 @@ class Hasband < ApplicationRecord
   has_many :must_todos,       :as => :user
   has_many :want_todos,       :as => :user
   has_many :schedules,        :as => :user
+  has_many :albums,           :as => :user
 
   after_create :update_access_token!
 

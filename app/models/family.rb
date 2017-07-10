@@ -6,4 +6,5 @@ class Family < ApplicationRecord
   has_many :must_todos
   has_many :want_todos
   has_many :schedules
+  has_many :albums
 end

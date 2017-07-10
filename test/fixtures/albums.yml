@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  image: MyString
+  family: one
+  user_id: 1
+  user_type: MyString
+
+two:
+  image: MyString
+  family: two
+  user_id: 1
+  user_type: MyString

@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170709212631) do
+ActiveRecord::Schema.define(version: 20170709225212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "albums", force: :cascade do |t|
+    t.string "image"
+    t.bigint "family_id"
+    t.integer "user_id"
+    t.string "user_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["family_id"], name: "index_albums_on_family_id"
+  end
 
   create_table "children", force: :cascade do |t|
     t.string "name"
@@ -134,6 +144,7 @@ ActiveRecord::Schema.define(version: 20170709212631) do
     t.index ["reset_password_token"], name: "index_wives_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "albums", "families"
   add_foreign_key "families", "hasbands"
   add_foreign_key "families", "wives"
   add_foreign_key "must_todos", "families"

@@ -1,5 +1,25 @@
 Rails.application.routes.draw do
 
+  namespace :v1 do
+    get 'albums/index'
+  end
+
+  namespace :v1 do
+    get 'albums/show'
+  end
+
+  namespace :v1 do
+    get 'albums/create'
+  end
+
+  namespace :v1 do
+    get 'albums/update'
+  end
+
+  namespace :v1 do
+    get 'albums/destroy'
+  end
+
   root :to => 'welcome#index'
 
   devise_for :wives,    only: []
@@ -23,6 +43,7 @@ Rails.application.routes.draw do
       resources :schedules,  only: [:index, :show, :create, :update, :destroy] do
         get "search_from_range", :on => :collection
       end
+      resources :albums,     only: [:index, :show, :create, :update, :destroy]
     end
     resource :children,   only: [:create]
     resources :questions,  only: [:index, :show]
