@@ -1,6 +1,6 @@
 class Album < ApplicationRecord
 
-  mount_uploader :album_image, AlbumImageUploader
+  mount_uploader :image, AlbumImageUploader
 
   belongs_to :user, :polymorphic => true
   belongs_to :family

@@ -3,7 +3,7 @@ module CarrierwaveBase64Uploader
 
   private
 
-  def base64_conversion(uri_str, filename = 'base64')
+  def base64_conversion(uri_str, filename = 'image')
     image_data = split_base64(uri_str)
     image_data_string = image_data[:data]
     image_data_binary = Base64.decode64(image_data_string)
@@ -14,8 +14,7 @@ module CarrierwaveBase64Uploader
     temp_img_file.rewind
 
     img_params = {:filename => "#{filename}.#{image_data[:extension]}", :type => image_data[:type], :tempfile => temp_img_file}
-    file = ActionDispatch::Http::UploadedFile.new(img_params)
-    return file
+    ActionDispatch::Http::UploadedFile.new(img_params)
   end
 
   def split_base64(uri_str)
