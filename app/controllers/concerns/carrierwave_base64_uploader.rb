@@ -6,6 +6,7 @@ module CarrierwaveBase64Uploader
   def base64_conversion(uri_str, filename = 'image')
     image_data = split_base64(uri_str)
     image_data_string = image_data[:data]
+    image_data_string.gsub!(" ", "+")
     image_data_binary = Base64.decode64(image_data_string)
 
     temp_img_file = Tempfile.new(filename)
