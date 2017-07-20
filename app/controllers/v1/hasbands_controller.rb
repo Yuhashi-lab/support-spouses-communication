@@ -4,7 +4,6 @@ module V1
 
     def create
       @hasband = Hasband.new hasband_params
-      binding.pry
       if @hasband.save
         render json: @hasband, serializer: V1::SessionSerializer, root: nil
       else
