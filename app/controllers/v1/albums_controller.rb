@@ -1,5 +1,7 @@
 class V1::AlbumsController < ApplicationController
   include CarrierwaveBase64Uploader
+  include Common
+
   before_action :is_your_family?
 
   def index

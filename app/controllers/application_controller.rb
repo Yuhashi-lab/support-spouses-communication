@@ -41,16 +41,8 @@ class ApplicationController < ActionController::API
   # Authentication Failure
   # Renders a 401 error
   def authenticate_error
-    render json: { error: ('devise.failure.unauthenticated') }, status: 401
+    render json: { error: ('failure.unauthenticated') }, status: 401
   end
 
-  def current_user
-    if request.headers["UserType"] == "hasband"
-      user = Hasband.find_by(id: request.headers["Authorization"].split(':').first)
-    else
-      user = Wife.find_by(id: request.headers["Authorization"].split(':').first)
-    end
-    return user
-  end
 
 end

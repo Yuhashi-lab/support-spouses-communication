@@ -1,5 +1,6 @@
 class V1::TalksController < ApplicationController
   before_action :is_your_family?
+  include Common
 
   def index
     @talks = Talk.where(family_id: params[:family_id])

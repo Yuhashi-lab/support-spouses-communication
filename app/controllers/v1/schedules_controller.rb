@@ -1,5 +1,6 @@
 class V1::SchedulesController < ApplicationController
   before_action :is_your_family?
+  include Common
 
   def index
     @schedules = Schedule.where(family_id: params[:family_id])

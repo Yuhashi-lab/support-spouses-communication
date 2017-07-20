@@ -1,5 +1,6 @@
 class V1::WantTodosController < ApplicationController
   before_action :is_your_family?
+  include Common
 
   def index
     @want_todos = WantTodo.where(family_id: params[:family_id])
