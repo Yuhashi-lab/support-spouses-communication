@@ -1,5 +1,5 @@
 class V1::QuestionAnswersController < ApplicationController
-  include Cmmon
+  include Common
 
   def create
     @answer = current_user.question_answers.new(question_answer_params)
