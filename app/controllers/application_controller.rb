@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
   before_action :authenticate_user_from_token!
+  after_action :set_default_headers
 
   respond_to :json
 
@@ -44,5 +45,14 @@ class ApplicationController < ActionController::API
     render json: { error: ('failure.unauthenticated') }, status: 401
   end
 
+  DEFAULT_HEADERS = {
+    'Access-Control-Allow-Origin' => '*',
+  }.freeze
+
+  def set_default_headers
+    DEFAULT_HEADERS.each_pair do |key, val|
+      response.headers[key] = val
+    end
+  end
 
 end

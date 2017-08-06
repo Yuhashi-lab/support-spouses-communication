@@ -4,7 +4,7 @@ module V1
 
     def create
       @hasband = Hasband.new hasband_params
-      if @hasband.save
+dokyu      if @hasband.save
         render json: @hasband, serializer: V1::SessionSerializer, root: nil
       else
         render json: { error: ('hasband_create_error') }, status: :unprocessable_entity
