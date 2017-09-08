@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170709225212) do
+ActiveRecord::Schema.define(version: 20170908074943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 20170709225212) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["family_id"], name: "index_albums_on_family_id"
+  end
+
+  create_table "bot_messages", force: :cascade do |t|
+    t.text "message"
+    t.date "target_start_date"
+    t.date "target_end_date"
+    t.integer "child_min_months"
+    t.integer "child_max_months"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "children", force: :cascade do |t|
@@ -60,6 +71,15 @@ ActiveRecord::Schema.define(version: 20170709225212) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_hasbands_on_email", unique: true
     t.index ["reset_password_token"], name: "index_hasbands_on_reset_password_token", unique: true
+  end
+
+  create_table "message_histories", force: :cascade do |t|
+    t.bigint "family_id"
+    t.bigint "bot_message_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bot_message_id"], name: "index_message_histories_on_bot_message_id"
+    t.index ["family_id"], name: "index_message_histories_on_family_id"
   end
 
   create_table "must_todos", force: :cascade do |t|
@@ -147,6 +167,8 @@ ActiveRecord::Schema.define(version: 20170709225212) do
   add_foreign_key "albums", "families"
   add_foreign_key "families", "hasbands"
   add_foreign_key "families", "wives"
+  add_foreign_key "message_histories", "bot_messages"
+  add_foreign_key "message_histories", "families"
   add_foreign_key "must_todos", "families"
   add_foreign_key "question_answers", "questions"
   add_foreign_key "schedules", "families"

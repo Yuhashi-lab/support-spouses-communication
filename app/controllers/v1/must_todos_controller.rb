@@ -1,6 +1,6 @@
 class V1::MustTodosController < ApplicationController
   before_action :is_your_family?
-  include Common
+  include Commonn
 
   def index
     @must_todos = MustTodo.where(family_id: params[:family_id])
