@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 20170908074943) do
     t.text "message"
     t.date "target_start_date"
     t.date "target_end_date"
-    t.integer "child_min_months"
-    t.integer "child_max_months"
+    t.integer "child_min_month"
+    t.integer "child_max_month"
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

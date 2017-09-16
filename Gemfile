@@ -26,7 +26,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 gem 'devise'
-gem 'sidekiq'
+gem 'sidekiq', '~> 5.0'
+gem 'redis-namespace'
 gem 'sinatra', require: false
 gem 'active_model_serializers'
 gem 'carrierwave'
