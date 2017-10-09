@@ -46,7 +46,9 @@ Rails.application.routes.draw do
     end
     resource :children, only: [:create]
     resources :questions, only: %i[index show]
-    resources :question_answers, only: [:create]
+    resources :question_answers, only: [:index, :create]do
+      get 'my_answers', on: :collection
+    end
   end
 
   require 'sidekiq/web'
