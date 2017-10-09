@@ -33,7 +33,7 @@ class V1::FamiliesController < ApplicationController
     end
 
     if family == nil
-      render json: ""
+      render json: nil
     else
       render json: family
     end
