@@ -33,7 +33,7 @@ class V1::FamiliesController < ApplicationController
     end
 
     if family == nil
-      render json: { error: ("user doesn't have family") }, status: :unprocessable_entity
+      render json: ""
     else
       render json: family
     end

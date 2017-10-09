@@ -7,6 +7,8 @@ class ApplicationController < ActionController::API
   def authenticate_user_from_token!
     auth_token = request.headers['Authorization']
     user_type  = request.headers['UserType']
+    binding.pry
+
     if auth_token && user_type
       authenticate_with_auth_token(auth_token, user_type)
     else
