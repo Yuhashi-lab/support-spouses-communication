@@ -17,6 +17,9 @@ w.family = f
 h.family = f
 Child.find_or_create_by(name: '人', birthday: '2016-03-08', family_id: f.id)
 Question.find_or_create_by(content: '質問1', category: 'before')
+Question.find_or_create_by(content: '質問2', category: 'before')
+Question.find_or_create_by(content: '質問3', category: 'before')
+Question.find_or_create_by(content: '質問4', category: 'before')
 
 # 季節
 BotMessage.find_or_create_by(message: '中秋の名月にはお月見団子を作りませんか？', target_start_date: '2017-09-20', target_end_date: '2017-09-26', child_min_month: 0, child_max_month: 47, url: 'http://www.hamamatsu-pippi.net/shiritai/blog/hint/docs/2015092300059/')

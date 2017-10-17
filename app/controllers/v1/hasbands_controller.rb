@@ -26,6 +26,15 @@ module V1
       end
     end
 
+    def update
+      hasband = Hasband.find(params[:id])
+      if hasband.update(hasband_params)
+        render json: { success: ('updated') }
+      else
+        render json: { error: ('failed') }
+      end
+    end
+
     def search_partner
       @wives = Wife.where("email like '%"+ params[:partner_email] + "%'")
       render 'search_partner', formats: 'json', handlers: 'jbuilder'

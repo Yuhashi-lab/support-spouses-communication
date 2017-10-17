@@ -22,7 +22,7 @@ class V1::FamiliesController < ApplicationController
         render json: { error: ('user already has family') }, status: :unprocessable_entity
       end
     end
-    #
+
   end
 
   def search
