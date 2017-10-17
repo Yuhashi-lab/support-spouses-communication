@@ -26,11 +26,13 @@ Rails.application.routes.draw do
 
   namespace :v1, defaults: { format: :json } do
     resource :login, only: [:create], controller: :sessions
-    resources :hasbands, only: [:show, :create, :update] do
+    resources :hasbands, only: [:show, :create] do
       get 'search_partner', on: :collection
+      post '', to: 'hasbands#update'
     end
     resources :wives, only: [:show, :create, :update] do
       get 'search_partner', on: :collection
+      post '', to: 'wives#update'
     end
     resources :families, only: [:create] do
       get 'search', on: :collection

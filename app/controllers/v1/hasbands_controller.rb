@@ -27,7 +27,7 @@ module V1
     end
 
     def update
-      hasband = Hasband.find(params[:id])
+      hasband = Hasband.find(params[:hasband_id])
       if hasband.update(hasband_params)
         render json: { success: ('updated') }
       else

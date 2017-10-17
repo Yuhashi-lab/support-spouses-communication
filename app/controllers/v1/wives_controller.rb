@@ -28,7 +28,7 @@ module V1
     end
 
     def update
-      wife = Wife.find(params[:id])
+      wife = Wife.find(params[:wife_id])
       if wife.update(wife_params)
         render json: { success: ('updated') }
       else
