@@ -1,6 +1,13 @@
 module V1
   class HasbandsController < ApplicationController
-    skip_before_action :authenticate_user_from_token!, only: [:create]
+    skip_before_action :authenticate_user_from_token!, only: [:create, :show]
+
+    def show
+      hasband = Hasband.find(params[:id]).to_json
+      hasband = JSON.parse(hasband).compact!
+      hasband.delete("access_token")
+      render json: hasband
+    end
 
     def create
       @hasband = Hasband.new hasband_params

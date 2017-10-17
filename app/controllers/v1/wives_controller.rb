@@ -1,6 +1,13 @@
 module V1
   class WivesController < ApplicationController
-    skip_before_action :authenticate_user_from_token!, only: [:create]
+    skip_before_action :authenticate_user_from_token!, only: [:create, :show]
+
+    def show
+      wife = Wife.find(params[:id]).to_json
+      wife = JSON.parse(wife).compact!
+      wife.delete("access_token")
+      render json: wife
+    end
 
     def create
       @wife = Wife.new wife_params
@@ -20,7 +27,7 @@ module V1
     private
 
     def wife_params
-      params.require(:wife).permit(:email, :password)
+      params.require(:wife).permit(:email, :password, :name, :birthday)
     end
   end
 end
