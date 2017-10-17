@@ -47,7 +47,7 @@ class V1::WantTodosController < ApplicationController
     end
 
     def want_todo_params
-      params.permit(:deadline, :statement, :personnel, :family_id,)
+      params.permit(:deadline, :statement, :family_id,)
     end
 
 end

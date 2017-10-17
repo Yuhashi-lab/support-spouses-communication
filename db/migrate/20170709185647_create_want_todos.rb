@@ -6,7 +6,6 @@ class CreateWantTodos < ActiveRecord::Migration[5.1]
       t.belongs_to  :family, foreign_key: true
       t.integer     :user_id
       t.string      :user_type
-      t.string      :personnel
 
       t.timestamps
     end

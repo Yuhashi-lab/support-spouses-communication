@@ -88,7 +88,6 @@ ActiveRecord::Schema.define(version: 20170908074943) do
     t.bigint "family_id"
     t.integer "user_id"
     t.string "user_type"
-    t.string "personnel"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["family_id"], name: "index_must_todos_on_family_id"
@@ -139,7 +138,6 @@ ActiveRecord::Schema.define(version: 20170908074943) do
     t.bigint "family_id"
     t.integer "user_id"
     t.string "user_type"
-    t.string "personnel"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["family_id"], name: "index_want_todos_on_family_id"

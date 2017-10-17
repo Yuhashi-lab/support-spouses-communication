@@ -47,7 +47,7 @@ class V1::MustTodosController < ApplicationController
     end
 
     def must_todo_params
-      params.permit(:deadline, :statement, :personnel, :family_id,)
+      params.permit(:deadline, :statement, :family_id,)
     end
 
 end
