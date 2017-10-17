@@ -3,9 +3,17 @@ module V1
     skip_before_action :authenticate_user_from_token!, only: [:create, :show]
 
     def show
-      hasband = Hasband.find(params[:id]).to_json
-      hasband = JSON.parse(hasband).compact!
+      hasband = Hasband.find(params[:id]).attributes
       hasband.delete("access_token")
+      hasband.delete("encrypted_password")
+      hasband.delete("reset_password_token")
+      hasband.delete("reset_password_sent_at")
+      hasband.delete("remember_created_at")
+      hasband.delete("current_sign_in_ip")
+      hasband.delete("last_sign_in_ip")
+      hasband.delete("sign_in_count")
+      hasband.delete("current_sign_in_at")
+      hasband.delete("last_sign_in_at")
       render json: hasband
     end
 

@@ -3,9 +3,17 @@ module V1
     skip_before_action :authenticate_user_from_token!, only: [:create, :show]
 
     def show
-      wife = Wife.find(params[:id]).to_json
-      wife = JSON.parse(wife).compact!
+      wife = Wife.find(params[:id]).attributes
       wife.delete("access_token")
+      wife.delete("encrypted_password")
+      wife.delete("reset_password_token")
+      wife.delete("reset_password_sent_at")
+      wife.delete("remember_created_at")
+      wife.delete("current_sign_in_ip")
+      wife.delete("last_sign_in_ip")
+      wife.delete("sign_in_count")
+      wife.delete("current_sign_in_at")
+      wife.delete("last_sign_in_at")
       render json: wife
     end
 
