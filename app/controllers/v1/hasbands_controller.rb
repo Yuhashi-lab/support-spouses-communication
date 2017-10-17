@@ -19,7 +19,7 @@ module V1
     private
 
     def hasband_params
-      params.require(:hasband).permit(:email, :password)
+      params.require(:hasband).permit(:email, :password, :name, :birthday)
     end
   end
 end
