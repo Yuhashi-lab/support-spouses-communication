@@ -32,6 +32,7 @@ gem 'sinatra', require: false
 gem 'active_model_serializers'
 gem 'carrierwave'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'unicorn'
 
 group :development, :test do
   gem 'pry-rails'
