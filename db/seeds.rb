@@ -1,8 +1,8 @@
 h = Hasband.new(id: 100, email: 'bot@email.com', encrypted_password: 'bot_pass', password: "bot_pass", birthday: "2017-01-01", name: "bot")
 h.save!
-w = Wife.new(email: 'wife@email.com', encrypted_password: 'wife_pass', password: "wife_pass", birthday: "2017-01-01", name: "bot")
+w = Wife.new(email: 'wife@email.com', encrypted_password: 'wife_pass', password: "wife_pass", birthday: "2017-01-01", name: "wife")
 w.save!
-h = Hasband.new(email: 'hasband@email.com', encrypted_password: 'hasband_pass', password: "hasband_pass", birthday: "2017-01-01", name: "bot")
+h = Hasband.new(email: 'hasband@email.com', encrypted_password: 'hasband_pass', password: "hasband_pass", birthday: "2017-01-01", name: "hasband")
 h.save!
 
 f = Family.create
