@@ -22,7 +22,7 @@ class V1::MustTodosController < ApplicationController
   end
 
   def update
-    must_todo = MustTodo.find(params[:id])
+    must_todo = MustTodo.find(params[:must_todo_id])
     if must_todo.update(must_todo_params)
       render json: { success: ('updated') }
     else

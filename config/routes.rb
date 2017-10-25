@@ -39,8 +39,12 @@ Rails.application.routes.draw do
       resources :talks, only: %i[index create] do
         get 'search_from_range', on: :collection
       end
-      resources :must_todos, only: %i[index show create update destroy]
-      resources :want_todos, only: %i[index show create update destroy]
+      resources :must_todos, only: %i[index show create destroy] do
+        post '', to: 'must_todos#update'
+      end
+      resources :want_todos, only: %i[index show create update destroy] do
+        post '', to: 'want_todos#update'
+      end
       resources :schedules,  only: %i[index show create update destroy] do
         get 'search_from_range', on: :collection
       end

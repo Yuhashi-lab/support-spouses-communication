@@ -22,7 +22,7 @@ class V1::WantTodosController < ApplicationController
   end
 
   def update
-    want_todo = WantTodo.find(params[:id])
+    want_todo = WantTodo.find(params[:want_todo_id])
     if want_todo.update(want_todo_params)
       render json: { success: ('updated') }
     else
