@@ -3,9 +3,8 @@ class V1::WantTodosController < ApplicationController
   include Common
 
   def index
-    @want_todos = WantTodo.where(family_id: params[:family_id])
-    h = WantTodo.where(family_id: params[:id], user_type: "Hasband").joins(:hasband).select(:id, :deadline, :statement, :family_id, :user_id, :user_type, :created_at, :updated_at, :name)
-    w = WantTodo.where(family_id: params[:id], user_type: "Wife").joins(:wife).select(:id, :deadline, :statement, :family_id, :user_id, :user_type, :created_at, :updated_at, :name)
+    h = WantTodo.where(family_id: params[:family_id], user_type: "Hasband").joins(:hasband).select(:id, :deadline, :statement, :family_id, :user_id, :user_type, :created_at, :updated_at, :name)
+    w = WantTodo.where(family_id: params[:family_id], user_type: "Wife").joins(:wife).select(:id, :deadline, :statement, :family_id, :user_id, :user_type, :created_at, :updated_at, :name)
     render json: h + w.sort_by{|elem| elem.created_at}
   end
 
