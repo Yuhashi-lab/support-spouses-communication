@@ -3,8 +3,9 @@ class V1::MustTodosController < ApplicationController
   include Common
 
   def index
-    @must_todos = MustTodo.where(family_id: params[:family_id])
-    render json: @must_todos
+    h = MustTodo.where(family_id: params[:id], user_type: "Hasband").joins(:hasband).select(:id, :deadline, :statement, :family_id, :user_id, :user_type, :created_at, :updated_at, :name)
+    w = MustTodo.where(family_id: params[:id], user_type: "Wife").joins(:wife).select(:id, :deadline, :statement, :family_id, :user_id, :user_type, :created_at, :updated_at, :name)
+    render json: h + w.sort_by{|elem| elem.created_at}
   end
 
   def show

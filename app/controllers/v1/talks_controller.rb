@@ -5,8 +5,7 @@ class V1::TalksController < ApplicationController
   def index
     h = Talk.where(family_id: params[:family_id], user_type: "Hasband").joins(:hasband).select(:id, :family_id, :user_id, :user_type, :name, :statement, :created_at, :updated_at)
     w = Talk.where(family_id: params[:family_id], user_type: "Wife").joins(:wife).select(:id, :family_id, :user_id, :user_type, :name, :statement, :created_at, :updated_at)
-    talks = h+w
-    render json: talks.sort_by{|elem| elem.created_at}
+    render json: h+w.sort_by{|elem| elem.created_at}
   end
 
   def search_from_range
