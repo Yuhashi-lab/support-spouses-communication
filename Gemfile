@@ -31,6 +31,7 @@ gem 'redis-namespace'
 gem 'sinatra', require: false
 gem 'active_model_serializers'
 gem 'carrierwave'
+gem 'fog'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'unicorn'
 
