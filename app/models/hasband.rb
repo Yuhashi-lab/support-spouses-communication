@@ -14,6 +14,8 @@ class Hasband < ApplicationRecord
   after_create :update_access_token!
 
   validates :email, presence: true
+  validates :name, presence: true
+  validates :birthday, presence: true
 
   def update_access_token!
     self.access_token = "#{self.id}:#{Devise.friendly_token}"
