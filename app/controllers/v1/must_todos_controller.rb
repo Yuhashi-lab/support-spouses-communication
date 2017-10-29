@@ -18,7 +18,7 @@ class V1::MustTodosController < ApplicationController
     if @must_todo.save
       render json: { success: ('created') }
     else
-      render json: { error: ('failed') }
+      render json: @must_todo.errors.messages, status: :unprocessable_entity
     end
   end
 

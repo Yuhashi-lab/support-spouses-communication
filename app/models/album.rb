@@ -4,4 +4,7 @@ class Album < ApplicationRecord
 
   belongs_to :user, :polymorphic => true
   belongs_to :family
+
+  validates :image,      presence: true
+
 end

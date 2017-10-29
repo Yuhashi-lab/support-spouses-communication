@@ -19,16 +19,15 @@ module V1
 
     def create
       @wife = Wife.new wife_params
-
-      if @wife.save!
+      if @wife.save
         render json: @wife, serializer: V1::SessionSerializer, root: nil
       else
-        render json: { error: t('wife_create_error') }, status: :unprocessable_entity
+        render json: @wife.errors.messages, status: :unprocessable_entity
       end
     end
 
     def update
-      wife = Wife.find(params[:wife_id])
+      wife = Wife.find(params[:id])
       if wife.update(wife_params)
         render json: { success: ('updated') }
       else

@@ -22,7 +22,7 @@ module V1
       if @hasband.save
         render json: @hasband, serializer: V1::SessionSerializer, root: nil
       else
-        render json: { error: ('hasband_create_error') }, status: :unprocessable_entity
+        render json: @hasband.errors.messages, status: :unprocessable_entity
       end
     end
 

@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(version: 20170908074943) do
   end
 
   create_table "children", force: :cascade do |t|
-    t.string "name"
-    t.date "birthday"
-    t.bigint "family_id"
+    t.string "name", null: false
+    t.date "birthday", null: false
+    t.bigint "family_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["family_id"], name: "index_children_on_family_id"

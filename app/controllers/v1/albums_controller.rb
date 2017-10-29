@@ -20,7 +20,7 @@ class V1::AlbumsController < ApplicationController
     if album.save
       render json: { success: ('created') }
     else
-      render json: { error: ('failed') }
+      render json: album.errors.messages, status: :unprocessable_entity
     end
   end
 

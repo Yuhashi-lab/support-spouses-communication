@@ -20,7 +20,7 @@ class V1::TalksController < ApplicationController
     if @talk.save
       render json: { success: 'created' }
     else
-      render json: { error: 'failed' }
+      render json: @talk.errors.messages, status: :unprocessable_entity
     end
   end
 

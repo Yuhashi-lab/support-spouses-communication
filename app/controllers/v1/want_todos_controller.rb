@@ -18,7 +18,7 @@ class V1::WantTodosController < ApplicationController
     if @want_todo.save
       render json: { success: ('created') }
     else
-      render json: { error: ('failed') }
+      render json: @want_todo.errors.messages, status: :unprocessable_entity
     end
   end
 
