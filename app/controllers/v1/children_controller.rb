@@ -10,6 +10,12 @@ class V1::ChildrenController < ApplicationController
       SendBotMessage.perform_at(Time.now.change(hour:12)+1.day, c.id)
     end
 
+    if Time.now < Time.now.change(hour:18)
+      SendMessage.perform_at(Time.now.change(hour:18), c.id)
+    else
+      SendMessage.perform_at(Time.now.change(hour:18)+1.day, c.id)
+    end
+
     render json: { success: 'created' }
   end
 end

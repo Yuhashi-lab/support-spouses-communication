@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20170908074943) do
 
   create_table "bot_messages", force: :cascade do |t|
     t.text "message"
+    t.string "message_type"
     t.date "target_start_date"
     t.date "target_end_date"
     t.integer "child_min_month"
