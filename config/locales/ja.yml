@@ -1,0 +1,48 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        hasband:
+          attributes:
+            email:
+              blank: "空白は受け付けられません"
+              invalid: "無効な形式です"
+              taken: "既に取得されています"
+            name:
+              blank: "空白は受け付けられません"
+            birthday:
+              blank: "空白は受け付けられません"
+              invalid: "無効な形式です"
+        wife:
+          attributes:
+            email:
+              blank: "空白は受け付けられません"
+              invalid: "無効な形式です"
+              taken: "既に取得されています"
+            name:
+              blank: "空白は受け付けられません"
+            birthday:
+              blank: "空白は受け付けられません"
+              invalid: "無効な形式です"
+        talk:
+          attributes:
+            statement:
+              blank: "空白は受け付けられません"
+        want_todo:
+          attributes:
+            deadline:
+              blank: "空白は受け付けられません"
+            statement:
+              blank: "空白は受け付けられません"
+        must_todo:
+          attributes:
+            deadline:
+              blank: "空白は受け付けられません"
+            statement:
+              blank: "空白は受け付けられません"
+        child:
+          attributes:
+            name:
+              blank: "空白は受け付けられません"
+            birthday:
+              blank: "空白は受け付けられません"
