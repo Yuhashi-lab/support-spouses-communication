@@ -10,6 +10,7 @@ class BotMessage < ApplicationRecord
       MessageHistory.create(family_id: child.family_id, bot_message_id: message.id)
     end
   end
+  
 
   def self.send_message(child_id)
     child = Child.find(child_id)
