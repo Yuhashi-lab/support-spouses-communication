@@ -6,11 +6,11 @@ class BotMessage < ApplicationRecord
     message = BotMessage.where(message_type: "compellation")
                         .where.not(id: MessageHistory.where(family_id: child.family_id).pluck(:bot_message_id)).sample()
     if message.present?
-      Talk.create(family_id: child.family_id, user_id: 100, user_type: "Hasband", statement: "#{message}")
+      Talk.create(family_id: child.family_id, user_id: 100, user_type: "Hasband", statement: "#{message.message}")
       MessageHistory.create(family_id: child.family_id, bot_message_id: message.id)
     end
   end
-  
+
 
   def self.send_message(child_id)
     child = Child.find(child_id)
